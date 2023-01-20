@@ -85,8 +85,8 @@ MANA_Price_Metric = get_data('MANA Price Metric')
 SAND_Price_Metric = get_data('SAND Price Metric')
 ALICE_Price_ATH = get_data('ALICE Price ATH')
 
-subtab_ALICE, subtab_AXS, subtab_ENJ, subtab_MANA, subtab_SAND = st.tabs(['ALICE', 'AXS', 'ENJ', 'MANA','SAND'])
-with subtab_ALICE:
+subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
+with subtab_Daily:
      c1, c2 = st.columns(2)
      with c1:
             df = ALICE_Price_ATH
@@ -106,7 +106,7 @@ with subtab_ALICE:
             fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title='$USD', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
-with subtab_AXS:
+with subtab_Weekly:
   c1, c2 = st.columns(2)
   with c1:
         df = ALICE_Price
@@ -121,7 +121,7 @@ with subtab_AXS:
         fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title='$USD', xaxis={'categoryorder':'total ascending'})
         st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 	   	
-with subtab_ENJ:
+with subtab_Monthly:
      c1, c2 = st.columns(2)
      with c1:
              df = ALICE_Price
@@ -134,31 +134,7 @@ with subtab_ENJ:
             fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title='$USD', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly) 
          
-with subtab_MANA:
-     c1, c2 = st.columns(2)
-     with c1:
-             df = ALICE_Price
-             fig = px.bar(df, x='DATE', y='RoPC', title='Range of Price Changes', log_y=False)
-             fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title='$USD')
-             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-     with c2:
-            df = MANA_Price_Metric
-            fig = px.line(df, x='Day', y='Price', color='TYPE', title='Price per Day', log_y=False)
-            fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title='$USD', xaxis={'categoryorder':'total ascending'})
-            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-               
-with subtab_SAND:
-     c1, c2 = st.columns(2)
-     with c1:
-             df = ALICE_Price
-             fig = px.bar(df, x='DATE', y='RoPC', title='Range of Price Changes', log_y=False)
-             fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title='$USD')
-             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-     with c2:
-            df = SAND_Price_Metric
-            fig = px.line(df, x='Day', y='Price', color='TYPE', title='Price per Day', log_y=False)
-            fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title='$USD', xaxis={'categoryorder':'total ascending'})
-            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
 
 #-----------------------------------------------------------------------------------------------------------
 c1, c2, c3 = st.columns(3)
