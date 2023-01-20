@@ -18,7 +18,7 @@ st.title('Arbitrum vs. Optimism')
 c1, c2 = st.columns(2)
 
 c1.image(Image.open('Images/Arbitrum.png'))
-c2.image(Image.open('Images/Optimism-logo.jpg'))
+c2.image(Image.open('Images/op.png'))
 
 st.subheader('📃 Introduction')
 
