@@ -12,7 +12,7 @@ st.title('New Year New LUNA')
 # Content
 c1, c2 = st.columns(2)
 
-c1.image(Image.open('Images/LUNA.png'))
+#c1.image(Image.open('Images/LUNA.png'))
 
 st.subheader('📃 Introduction')
 
