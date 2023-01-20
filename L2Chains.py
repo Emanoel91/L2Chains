@@ -3,11 +3,11 @@ import streamlit as st
 import PIL
 from PIL import Image
 
-#l2chains = PIL.Image.open('op-arb.JPG')
+l2chains = PIL.Image.open('op-arb.JPG')
 
 # Title
-st.set_page_config(page_title='New Year New LUNA', page_icon=luna , layout='wide')
-st.title('New Year New LUNA')
+st.set_page_config(page_title='Arbitrum vs. Optimism', page_icon=l2chains , layout='wide')
+st.title('Arbitrum vs. Optimism')
 
 # Content
 c1, c2 = st.columns(2)
