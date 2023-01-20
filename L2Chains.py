@@ -61,12 +61,7 @@ subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Month
 with subtab_Daily:
      #c1, c2 = st.columns(2)	
            
-with subtab_Weekly:
-     #c1, c2 = st.columns(2)
-                
-	             	
-with subtab_Monthly:
-     #c1, c2 = st.columns(2)
+
     
          
 
