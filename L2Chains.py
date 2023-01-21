@@ -98,6 +98,8 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/335e43c1-ebc8-4117-80be-b97f3d0945a7/data/latest')
      elif query1 == 'Arbitrum TX Status':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/cfc29701-c6f0-4a71-b102-7f119313dda9/data/latest')
+     elif query1 == 'Optimism TX Status':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/880cf7d7-70ab-4cff-b926-3b6df8a28c59/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
@@ -110,6 +112,7 @@ New_Addresses_Weekly = get_data('New Addresses Weekly')
 New_Addresses_Monthly = get_data('New Addresses Monthly')
 Transaction_Overview = get_data('Transaction Overview')
 Arbitrum_TX_Status = get_data('Arbitrum TX Status')
+Optimism_TX_Status = gt_data('Optimism TX Status')
 
 st.subheader('📄 Overview')
 
@@ -162,16 +165,18 @@ with subtab_Daily:
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
-            df = Transaction_Overview
-            c1, c2, c3, c4 = st.columns(4)
+            df = Arbitrum_TX_Status
+            c1, c2 = st.columns(2)
              
             with c1:
-                fig = px.bar(df, x='L2 Chain', y='TPS', color='L2 Chain', title='Aerage TPS', log_y=False)
-                fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
+                fig = px.bar(df, x='Day', y='TX Count', color='STATUS', title='🔵Arbitrum: Status of Transactions', log_y=False)
+                fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
                 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+            df = Optimism_TX_Status
             with c2:
-                fig = px.bar(df, x='L2 Chain', y='Average TX Value', color='L2 Chain', title='Average Transactions Value', log_y=False)
-                fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+                fig = px.bar(df, x='Day', y='TX Count', color='STATUS', title='🔴Optimism: Status of Transactions', log_y=False)
+                fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
                 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 		
 with subtab_Daily:
