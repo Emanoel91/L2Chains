@@ -56,7 +56,6 @@ def get_data(query1):
 
 Daily_Transactions = get_data('Daily Transactions')
 
-
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
 with subtab_Daily:
 	          fig = px.bar(df, x='Day', y='TX Count', color='L2Chain', title='Total Users Count (2023)', log_y=False)
