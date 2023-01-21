@@ -69,7 +69,7 @@ transaction size, active users, new users added, and many intersting metrics rel
     """
 )
 
-st.subheader('📊 Analysis')
+
 #---------------------------------------------------------------------------------------------------------
 # dash_style
 with open('style.css')as f:
@@ -104,6 +104,11 @@ Weekly_Transactions = get_data('Weekly Transactions')
 Monthly_Transactions = get_data('Monthly Transactions')
 New_Addresses_Weekly = get_data('New Addresses Weekly')
 New_Addresses_Monthly = get_data('New Addresses Monthly')
+
+st.subheader('📊 Overview')
+
+
+st.subheader('📊 Analysis')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
 with subtab_Daily:
