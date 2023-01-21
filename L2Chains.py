@@ -312,6 +312,8 @@ with subtab_Monthly:
                 fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
                 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
+with subtab_Monthly:
+            df = Monthly_Transactions			
             fig = px.bar(df, x='Month', y='TPS', color='L2 Chain', title='Transaction per Second (TPS)', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
