@@ -47,13 +47,14 @@ specifically Optimistic rollups. They’re called rollups because they roll up (
 mainnet (layer 1). And they’re called Optimistic rollups because transactions are assumed to be valid until they are proven false, or in other words, innocent until proven guilty. 
 
 🟢 **Arbitrum Versus Optimism**
+
 The largest difference between Arbitrum and Optimism is how the technology resolves a dispute on Layer 2. Both projects are optimistic rollups and use a challenge 
 system where any validator can dispute a block on the chain. This is where the technology of the 2 projects diverge. Optimism re-executes the disputed transaction on 
 Layer 1 and checks which party is correct in their assertion. 
 The Arbitrum team realized that this process can contribute to network congestion significantly. Optimism needs to port a large amount of data to Layer 1 to compute 
 the disputed transaction and resolve it. Instead, Arbitrum continuously subdivides the challenge until the disputed information is so small that it can be quickly sent
 to and resolved on Layer 1. Because they both use optimistic rollups, some trust in the validators is required. If all validators for a dApp collude in a malicious 
-attack and no one challenges it, Arbitrum’s bridge between Layer 1 and 2 will assume the transaction is valid. 
+attack and no one challenges it, Arbitrum’s bridge between Layer 1 and 2 will assume the transaction is valid.[[2]](https://www.benzinga.com/money/what-is-arbitrum)
 
 
 
@@ -63,8 +64,8 @@ attack and no one challenges it, Arbitrum’s bridge between Layer 1 and 2 will 
 st.subheader('🎯 Purposes of Dashboard')
 st.write(
     """
-***In this Dashboard we compare and contrast two major L2 chains: Arbitrum & Optimism. We analysis metrics such as total and average transaction volume, average 
-transaction size, active users, new users added, and many intersting metrics relevant to this comparison.***
+**In this Dashboard we compare and contrast two major L2 chains: Arbitrum & Optimism. We analysis metrics such as total and average transaction volume, average 
+transaction size, active users, new users added, and many intersting metrics relevant to this comparison.**
     """
 )
 
