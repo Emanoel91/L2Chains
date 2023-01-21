@@ -110,8 +110,8 @@ Transaction_Overview = get_data('Transaction Overview')
 
 st.subheader('📄 Overview')
 
-            df = Transaction_Overview
-            c1, c2, c3, c4 = st.columns(4)
+df = Transaction_Overview
+c1, c2, c3, c4 = st.columns(4)
 
             with c1:
 	    fig = px.bar(df, x='L2 Chain', y='TX Count', color='L2 Chain', title='Total Transactions Count', log_y=False)
