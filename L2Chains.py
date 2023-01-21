@@ -100,6 +100,14 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/cfc29701-c6f0-4a71-b102-7f119313dda9/data/latest')
      elif query1 == 'Optimism TX Status':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/880cf7d7-70ab-4cff-b926-3b6df8a28c59/data/latest')
+     elif query1 == 'Arbitrum TX Status Weekly':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/a7c937c0-1a3f-4d47-8e9f-daece6bcab95/data/latest')
+     elif query1 == 'Optimism TX Status Weekly':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/ef59f00d-7aff-42ea-9c8c-f7da9bf07f31/data/latest')
+     elif query1 == 'Arbitrum TX Status Monthly':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/8007648b-997a-4647-9900-ebb983e78c23/data/latest')
+     elif query1 == 'Optimism TX Status Monthly':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/73494d91-353c-4d8a-aa52-d6eb9f112e10/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
@@ -113,6 +121,10 @@ New_Addresses_Monthly = get_data('New Addresses Monthly')
 Transaction_Overview = get_data('Transaction Overview')
 Arbitrum_TX_Status = get_data('Arbitrum TX Status')
 Optimism_TX_Status = get_data('Optimism TX Status')
+Arbitrum_TX_Status_Weekly = get_data('Arbitrum TX Status Weekly')
+Optimism_TX_Status_Weekly = get_data('Optimism TX Status Weekly')
+Arbitrum_TX_Status_Monthly = get_data('Arbitrum TX Status Monthly')
+Optimism_TX_Status_Monthly = get_data('Optimism TX Status Monthly')
 
 st.subheader('📄 Overview')
 
@@ -225,7 +237,23 @@ with subtab_Weekly:
             fig = px.bar(df, x='Week', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
-
+	
+            df = Arbitrum_TX_Status_Weekly
+            c1, c2 = st.columns(2)
+             
+            with c1:
+                fig = px.bar(df, x='Week', y='TX Count', color='STATUS', title='🔵Arbitrum: Status of Transactions', log_y=False)
+                fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
+                st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+            df = Optimism_TX_Status_Weekly
+            with c2:
+                fig = px.bar(df, x='Week', y='TX Count', color='STATUS', title='🔴Optimism: Status of Transactions', log_y=False)
+                fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
+                st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+with subtab_Weekly:
+            df = Weekly_Transactions		
             fig = px.bar(df, x='Week', y='TPS', color='L2 Chain', title='Transaction per Second (TPS)', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
@@ -268,7 +296,21 @@ with subtab_Monthly:
             df = Monthly_Transactions
             fig = px.bar(df, x='Month', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
-            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+	
+            df = Arbitrum_TX_Status_Monthly
+            c1, c2 = st.columns(2)
+             
+            with c1:
+                fig = px.bar(df, x='Month', y='TX Count', color='STATUS', title='🔵Arbitrum: Status of Transactions', log_y=False)
+                fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
+                st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+            df = Optimism_TX_Status_Monthly
+            with c2:
+                fig = px.bar(df, x='Month', y='TX Count', color='STATUS', title='🔴Optimism: Status of Transactions', log_y=False)
+                fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
+                st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
             fig = px.bar(df, x='Month', y='TPS', color='L2 Chain', title='Transaction per Second (TPS)', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
