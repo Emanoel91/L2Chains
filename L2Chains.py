@@ -147,15 +147,15 @@ with subtab_Daily:
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------		
 with subtab_Weekly:
             df = Weekly_Transactions
-            fig = px.bar(df, x='Week', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
+            fig = px.bar(df, x='Week', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
-            fig = px.line(df, x='Week', y='TPS', color='L2 Chain', title='Transaction per Second (TPS)', log_y=False)
+            fig = px.bar(df, x='Week', y='TPS', color='L2 Chain', title='Transaction per Second (TPS)', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 		
-            fig = px.bar(df, x='Week', y='Total TX Fee', color='L2 Chain', title='Total Transaction Fees', log_y=False)
+            fig = px.bar(df, x='Week', y='Total TX Fee', color='L2 Chain', title='Total Transaction Fees', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
@@ -167,7 +167,7 @@ with subtab_Weekly:
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 	
-            fig = px.line(df, x='Week', y='Active Address', color='L2 Chain', title='Number of Active Addresses', log_y=False)
+            fig = px.bar(df, x='Week', y='Active Address', color='L2 Chain', title='Number of Active Addresses', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------	   	
