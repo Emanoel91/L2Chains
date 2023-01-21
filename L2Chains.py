@@ -63,8 +63,8 @@ subtab_ALICE, subtab_AXS, subtab_ENJ = st.tabs(['ALICE', 'AXS', 'ENJ'])
 with subtab_ALICE:
 
             df = Daily_Transactions
-            fig = px.bar(df, x='Day', y='Total TX', color='L2Chain', title='Total Number of Transactions', log_y=False)
-            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
+            fig = px.bar(df, x='Day', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
 with subtab_AXS:
