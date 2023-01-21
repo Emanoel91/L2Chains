@@ -162,7 +162,7 @@ with subtab_Daily:
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
-	    df = Daily_Transactions
+	    df = Transaction_Overview
 	    c1, c2, c3, c4 = st.columns(4)
 
             with c1:
