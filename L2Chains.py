@@ -90,6 +90,10 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/29ad802c-4267-4cc7-8458-b48f17d6898b/data/latest')
      elif query1 == 'Monthly Transactions':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/8fd56cb3-9123-407b-9c95-0f215202a1a2/data/latest')
+     elif query1 == 'New Addresses Weekly':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/ca20a9b0-a0c5-49c9-b3d3-5a16a11e6b45/data/latest')
+     elif query1 == 'New Addresses Monthly':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/37b83485-1817-4ca3-bf57-8157ff28addc/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
@@ -98,6 +102,8 @@ New_Addresses = get_data('New Addresses')
 Daily_Transactions_Value = get_data('Daily Transactions Value')
 Weekly_Transactions = get_data('Weekly Transactions')
 Monthly_Transactions = get_data('Monthly Transactions')
+New_Addresses_Weekly = get_data('New Addresses Weekly')
+New_Addresses_Monthly = get_data('New Addresses Monthly')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
 with subtab_Daily:
@@ -170,6 +176,13 @@ with subtab_Weekly:
             fig = px.bar(df, x='Week', y='Active Address', color='L2 Chain', title='Number of Active Addresses', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+with subtab_Weekly:
+	
+             df = New_Addresses_Weekly
+             fig = px.bar(df, x='Week', y='New Address', color='L2 Chain', title='Number of New Addresses', log_y=False, barmode='group')
+             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------	   	
 with subtab_Monthly:
             df = Monthly_Transactions
@@ -196,6 +209,13 @@ with subtab_Monthly:
             fig = px.bar(df, x='Month', y='Active Address', color='L2 Chain', title='Number of Active Addresses', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+with subtab_Monthly:
+	
+             df = New_Addresses_Monthly
+             fig = px.bar(df, x='Month', y='New Address', color='L2 Chain', title='Number of New Addresses', log_y=False, barmode='group')
+             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)			
                    
 #-----------------------------------------------------------------------------------------------------------
 c1, c2, c3 = st.columns(3)
