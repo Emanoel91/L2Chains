@@ -175,14 +175,25 @@ with subtab_Weekly:
 	
             fig = px.bar(df, x='Week', y='Active Address', color='L2 Chain', title='Number of Active Addresses', log_y=False, barmode='group')
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
-            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)			
 		
 with subtab_Weekly:
 	
              df = New_Addresses_Weekly
              fig = px.bar(df, x='Week', y='New Address', color='L2 Chain', title='Number of New Addresses', log_y=False, barmode='group')
              fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
-             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+	
+with subtab_Weekly:
+	
+             df = Weekly_Transactions	
+             fig = px.bar(df, x='Week', y='Total TX Value', color='L2 Chain', title='Total Transactions Value', log_y=False, barmode='group')
+             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+             fig = px.line(df, x='Week', y='Average TX Value', color='L2 Chain', title='Average Transactions Value', log_y=False)
+             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------	   	
 with subtab_Monthly:
             df = Monthly_Transactions
@@ -215,7 +226,18 @@ with subtab_Monthly:
              df = New_Addresses_Monthly
              fig = px.bar(df, x='Month', y='New Address', color='L2 Chain', title='Number of New Addresses', log_y=False, barmode='group')
              fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
-             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)			
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+	
+with subtab_Monthly:
+	
+             df = Monthly_Transactions	
+             fig = px.bar(df, x='Month', y='Total TX Value', color='L2 Chain', title='Total Transactions Value', log_y=False, barmode='group')
+             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+             fig = px.line(df, x='Month', y='Average TX Value', color='L2 Chain', title='Average Transactions Value', log_y=False)
+             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
                    
 #-----------------------------------------------------------------------------------------------------------
 c1, c2, c3 = st.columns(3)
