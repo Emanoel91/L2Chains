@@ -84,11 +84,14 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/392bbd12-3ba3-4fa8-844b-6bf8f81405e5/data/latest')
      elif query1 == 'New Addresses':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/90828ee6-8f67-47de-8812-29d302b22d4c/data/latest')
+     elif query1 == 'Daily Transactions Value':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/ea6888d0-422a-4bce-bb77-da7ec1410cbc/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
 ALICE_Price_ATH = get_data('ALICE Price ATH')
 New_Addresses = get_data('New Addresses')
+Daily_Transactions_Value = get_data('Daily Transactions Value')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
 with subtab_Daily:
@@ -109,7 +112,7 @@ with subtab_Daily:
 
             fig = px.line(df, x='Day', y='Average TX per Address', color='L2 Chain', title='Average Transaction Count per Address', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
-            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 	
             fig = px.line(df, x='Day', y='Active Address', color='L2 Chain', title='Number of Active Addresses', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
@@ -120,8 +123,20 @@ with subtab_Daily:
              df = New_Addresses
              fig = px.line(df, x='Date', y='New Address', color='L2 Chain', title='Number of New Addresses', log_y=False)
              fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+	
+with subtab_Daily:
+	
+             df = Daily_Transactions_Value	
+             df = New_Addresses
+             fig = px.line(df, x='Date', y='Total TX Value', color='L2 Chain', title='Total Transactions Value', log_y=False)
+             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+             fig = px.line(df, x='Date', y='Average TX Value', color='L2 Chain', title='Average Transactions Value', log_y=False)
+             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
              st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
-
+		
 with subtab_Weekly:
      c1, c2 = st.columns(2)
      with c1:
