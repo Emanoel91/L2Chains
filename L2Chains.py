@@ -86,7 +86,7 @@ MANA_Price_Metric = get_data('MANA Price Metric')
 SAND_Price_Metric = get_data('SAND Price Metric')
 ALICE_Price_ATH = get_data('ALICE Price ATH')
 
-subtab_ALICE, subtab_AXS, subtab_ENJ, subtab_MANA, subtab_SAND = st.tabs(['ALICE', 'AXS', 'ENJ', 'MANA','SAND'])
+subtab_ALICE, subtab_AXS, subtab_ENJ = st.tabs(['ALICE', 'AXS', 'ENJ'])
 with subtab_ALICE:
      c1, c2 = st.columns(2)
      with c1:
@@ -98,18 +98,23 @@ with subtab_ALICE:
 
 
 with subtab_AXS:
-
+     c1, c2 = st.columns(2)
+     with c1:
+            df = ALICE_Price_ATH
+            st.metric(label='ALICE Price ATH', value=df['Price ATH'])	
+     with c2:
+            df = ALICE_Price_ATH
+            st.metric(label='Range of Price Change', value=df['RoPC'])
 	   	
 with subtab_ENJ:
-
-         
-with subtab_MANA:
-
-               
-with subtab_SAND:
-
-
-             
+     c1, c2 = st.columns(2)
+     with c1:
+            df = ALICE_Price_ATH
+            st.metric(label='ALICE Price ATH', value=df['Price ATH'])	
+     with c2:
+            df = ALICE_Price_ATH
+            st.metric(label='Range of Price Change', value=df['RoPC'])
+                   
 #-----------------------------------------------------------------------------------------------------------
 c1, c2, c3 = st.columns(3)
 with c1:
