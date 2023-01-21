@@ -69,12 +69,7 @@ transaction size, active users, new users added, and many intersting metrics rel
     """
 )
 
-st.subheader('🔑 Methodology')
-st.write(
-    """
-333
-    """
-)
+
 #---------------------------------------------------------------------------------------------------------
 # dash_style
 with open('style.css')as f:
