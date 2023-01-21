@@ -112,7 +112,7 @@ New_Addresses_Weekly = get_data('New Addresses Weekly')
 New_Addresses_Monthly = get_data('New Addresses Monthly')
 Transaction_Overview = get_data('Transaction Overview')
 Arbitrum_TX_Status = get_data('Arbitrum TX Status')
-Optimism_TX_Status = gt_data('Optimism TX Status')
+Optimism_TX_Status = get_data('Optimism TX Status')
 
 st.subheader('📄 Overview')
 
