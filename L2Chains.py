@@ -65,7 +65,7 @@ with subtab_ALICE:
             df = Daily_Transactions
             fig = px.bar(df, x='Day', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
-            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+            st.plotly_chart(fig, use_container_width=True)	
 
 with subtab_AXS:
      c1, c2 = st.columns(2)
