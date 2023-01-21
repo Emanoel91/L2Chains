@@ -113,7 +113,7 @@ st.subheader('📄 Overview')
 df = Transaction_Overview
 c1, c2, c3, c4 = st.columns(4)
 
-            with c1:
+with c1:
 	    fig = px.bar(df, x='L2 Chain', y='TX Count', color='L2 Chain', title='Total Transactions Count', log_y=False)
             fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
