@@ -128,11 +128,11 @@ with subtab_Daily:
 with subtab_Daily:
 	
              df = Daily_Transactions_Value	
-             fig = px.line(df, x='Date', y='Total TX Value', color='L2 Chain', title='Total Transactions Value', log_y=False)
+             fig = px.line(df, x='Day', y='Total TX Value', color='L2 Chain', title='Total Transactions Value', log_y=False)
              fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
              st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 		
-             fig = px.line(df, x='Date', y='Average TX Value', color='L2 Chain', title='Average Transactions Value', log_y=False)
+             fig = px.line(df, x='Day', y='Average TX Value', color='L2 Chain', title='Average Transactions Value', log_y=False)
              fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
              st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
 		
