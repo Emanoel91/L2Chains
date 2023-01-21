@@ -82,10 +82,13 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/8481f651-ec83-44a4-8aa5-d79ef14de8d9/data/latest')
      elif query1 == 'ALICE Price ATH':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/392bbd12-3ba3-4fa8-844b-6bf8f81405e5/data/latest')
+     elif query1 == 'New Addresses':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/90828ee6-8f67-47de-8812-29d302b22d4c/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
 ALICE_Price_ATH = get_data('ALICE Price ATH')
+New_Addresses = get_data('New Addresses')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
 with subtab_Daily:
@@ -111,6 +114,11 @@ with subtab_Daily:
             fig = px.line(df, x='Day', y='Active Address', color='L2 Chain', title='Number of Active Addresses', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+             
+	    df = New_Addresses
+            fig = px.line(df, x='Date', y='New Address', color='L2 Chain', title='Number of New Addresses', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
 
 with subtab_Weekly:
      c1, c2 = st.columns(2)
