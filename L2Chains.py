@@ -64,7 +64,7 @@ subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Month
 with subtab_Daily:
 
             df = Daily_Transactions
-            fig = px.Line(df, x='Day', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
+            fig = px.Area(df, x='Day', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
