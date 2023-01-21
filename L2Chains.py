@@ -26,7 +26,19 @@ st.subheader('📃 Introduction')
 
 st.write(
     """
-    111
+🔘 **Layer 2 Solutions**
+
+Layer 2 is a term used for solutions created to help scale an application by processing transactions off of the Ethereum Mainnet (layer 1) while still maintaining the 
+same security measures and decentralization as the mainnet. Layer 2 solutions increase throughput (transaction speed) and reduce gas fees.
+
+🔴 **Optimism**
+
+Optimism is a layer 2 chain, meaning it functions on top of Ethereum mainnet (layer 1). Transactions take place on Optimism, but the data about transactions get posted
+to mainnet where they are validated. It’s like driving in a less crowded side street while benefiting from the security of a highway. Optimism is the second-largest 
+Ethereum layer 2 with a total of $1.41 B locked into its smart contracts, as of this writing, according to l2beat. Optimism uses a technology called rollups, 
+specifically Optimistic rollups. They’re called rollups because they roll up (or bundle) the data about hundreds of transactions – non-fungible token (NFT) mints, 
+token swaps … any transaction! – into a single transaction on Ethereum mainnet (layer 1). And they’re called Optimistic rollups because transactions are assumed to be 
+valid until they are proven false, or in other words, innocent until proven guilty. 
     """
 )
 
