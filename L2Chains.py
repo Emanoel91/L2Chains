@@ -60,15 +60,15 @@ def get_data(query1):
 Daily_Transactions = get_data('Daily Transactions')
 ALICE_Price_ATH = get_data('ALICE Price ATH')
 
-subtab_ALICE, subtab_AXS, subtab_ENJ = st.tabs(['ALICE', 'AXS', 'ENJ'])
-with subtab_ALICE:
+subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
+with subtab_Daily:
 
             df = Daily_Transactions
             fig = px.bar(df, x='Day', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
-with subtab_AXS:
+with subtab_Weekly:
      c1, c2 = st.columns(2)
      with c1:
             df = ALICE_Price_ATH
@@ -77,7 +77,7 @@ with subtab_AXS:
             df = ALICE_Price_ATH
             st.metric(label='Range of Price Change', value=df['RoPC'])
 	   	
-with subtab_ENJ:
+with subtab_Monthly:
      c1, c2 = st.columns(2)
      with c1:
             df = ALICE_Price_ATH
