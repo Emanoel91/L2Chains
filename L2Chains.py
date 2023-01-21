@@ -69,7 +69,7 @@ transaction size, active users, new users added, and many intersting metrics rel
     """
 )
 
-
+st.subheader('📊 Analysis')
 #---------------------------------------------------------------------------------------------------------
 # dash_style
 with open('style.css')as f:
