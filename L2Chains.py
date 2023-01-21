@@ -94,6 +94,8 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/ca20a9b0-a0c5-49c9-b3d3-5a16a11e6b45/data/latest')
      elif query1 == 'New Addresses Monthly':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/37b83485-1817-4ca3-bf57-8157ff28addc/data/latest')
+     elif query1 == 'Transaction Overview':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/335e43c1-ebc8-4117-80be-b97f3d0945a7/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
@@ -104,10 +106,28 @@ Weekly_Transactions = get_data('Weekly Transactions')
 Monthly_Transactions = get_data('Monthly Transactions')
 New_Addresses_Weekly = get_data('New Addresses Weekly')
 New_Addresses_Monthly = get_data('New Addresses Monthly')
+Transaction_Overview = get_data('Transaction Overview')
 
-st.subheader('📊 Overview')
-
-
+st.subheader('📄 Overview')
+df = Transaction_Overview
+c1, c2, c3, c4 = st.columns(4)
+with c1:
+	fig = px.bar(df, x='L2 Chain', y='TX Count', color='L2 Chain', title='Total Transactions Count', log_y=False)
+        fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+with c2:
+	fig = px.bar(df, x='L2 Chain', y='Total TX Fee', color='L2 Chain', title='Total Transaction Fees', log_y=False)
+        fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+with c3:
+	fig = px.bar(df, x='L2 Chain', y='Active Address', color='L2 Chain', title='Total Number of Addresses', log_y=False)
+        fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='Addresses Count', xaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+with c4:
+	fig = px.bar(df, x='L2 Chain', y='Total TX Value', color='L2 Chain', title='Total Transactions Value', log_y=False)
+        fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+        st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+	
 st.subheader('📊 Analysis')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
