@@ -59,8 +59,17 @@ Daily_Transactions = get_data('Daily Transactions')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
 with subtab_Daily:
-     #c1, c2 = st.columns(2)	
-           
+	          fig = px.bar(df, x='Day', y='TX Count', color='L2Chain', title='Total Users Count (2023)', log_y=False)
+                  fig.update_layout(showlegend=True, xaxis_title=None, legend_title='ACTION', yaxis_title='', xaxis={'categoryorder':'total ascending'})
+                  st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+with subtab_Weekly:	
+	          fig = px.bar(df, x='Day', y='Total Users Count', color='L2Chain', title='Total Users Count (2023)', log_y=False)
+                  fig.update_layout(showlegend=True, xaxis_title=None, legend_title='ACTION', yaxis_title='', xaxis={'categoryorder':'total ascending'})
+                  st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)   
+with subtab_Monthly:     	
+                  fig = px.bar(df, x='Day', y='Total Users Count', color='L2Chain', title='Total Users Count (2023)', log_y=False)
+                  fig.update_layout(showlegend=True, xaxis_title=None, legend_title='ACTION', yaxis_title='', xaxis={'categoryorder':'total ascending'})
+                  st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
     
          
