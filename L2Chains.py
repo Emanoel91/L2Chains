@@ -86,12 +86,18 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/90828ee6-8f67-47de-8812-29d302b22d4c/data/latest')
      elif query1 == 'Daily Transactions Value':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/ea6888d0-422a-4bce-bb77-da7ec1410cbc/data/latest')
+     elif query1 == 'Weekly Transactions':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/29ad802c-4267-4cc7-8458-b48f17d6898b/data/latest')
+     elif query1 == 'Monthly Transactions':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/8fd56cb3-9123-407b-9c95-0f215202a1a2/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
 ALICE_Price_ATH = get_data('ALICE Price ATH')
 New_Addresses = get_data('New Addresses')
 Daily_Transactions_Value = get_data('Daily Transactions Value')
+Weekly_Transactions = get_data('Weekly Transactions')
+Monthly_Transactions = get_data('Monthly Transactions')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
 with subtab_Daily:
@@ -138,24 +144,58 @@ with subtab_Daily:
              fig = px.line(df, x='Day', y='Average TX Value', color='L2 Chain', title='Average Transactions Value', log_y=False)
              fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
              st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
-		
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------		
 with subtab_Weekly:
-     c1, c2 = st.columns(2)
-     with c1:
-            df = ALICE_Price_ATH
-            st.metric(label='ALICE Price ATH', value=df['Price ATH'])	
-     with c2:
-            df = ALICE_Price_ATH
-            st.metric(label='Range of Price Change', value=df['RoPC'])
-	   	
+            df = Weekly_Transactions
+            fig = px.bar(df, x='Week', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+
+            fig = px.line(df, x='Week', y='TPS', color='L2 Chain', title='Transaction per Second (TPS)', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+		
+            fig = px.bar(df, x='Week', y='Total TX Fee', color='L2 Chain', title='Total Transaction Fees', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+            fig = px.line(df, x='Week', y='Average TX Fee', color='L2 Chain', title='Average Transaction Fees', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)			
+
+            fig = px.line(df, x='Week', y='Average TX per Address', color='L2 Chain', title='Average Transaction Count per Address', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+	
+            fig = px.line(df, x='Week', y='Active Address', color='L2 Chain', title='Number of Active Addresses', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+#-----------------------------------------------------------------------------------------------------------------------------------------------------------	   	
 with subtab_Monthly:
-     c1, c2 = st.columns(2)
-     with c1:
-            df = ALICE_Price_ATH
-            st.metric(label='ALICE Price ATH', value=df['Price ATH'])	
-     with c2:
-            df = ALICE_Price_ATH
-            st.metric(label='Range of Price Change', value=df['RoPC'])
+            df = Monthly_Transactions
+            fig = px.bar(df, x='Month', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+
+            fig = px.line(df, x='Month', y='TPS', color='L2 Chain', title='Transaction per Second (TPS)', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+		
+            fig = px.bar(df, x='Month', y='Total TX Fee', color='L2 Chain', title='Total Transaction Fees', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+            fig = px.line(df, x='Month', y='Average TX Fee', color='L2 Chain', title='Average Transaction Fees', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)			
+
+            fig = px.line(df, x='Month', y='Average TX per Address', color='L2 Chain', title='Average Transaction Count per Address', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+	
+            fig = px.line(df, x='Month', y='Active Address', color='L2 Chain', title='Number of Active Addresses', log_y=False)
+            fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='Addresses', xaxis={'categoryorder':'total ascending'})
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
                    
 #-----------------------------------------------------------------------------------------------------------
 c1, c2, c3 = st.columns(3)
