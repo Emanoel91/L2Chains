@@ -31,11 +31,18 @@ st.write(
 Layer 2 is a term used for solutions created to help scale an application by processing transactions off of the Ethereum Mainnet (layer 1) while still maintaining the 
 same security measures and decentralization as the mainnet. Layer 2 solutions increase throughput (transaction speed) and reduce gas fees.
 
+🔵 **Arbitrum**
+
+Arbitrum is the first-largest Ethereum layer 2 with a total of $2.68B locked into its smart contracts, as of this writing, according to [l2beat](https://l2beat.com/scaling/tvl).
+Arbitrum uses a technique known as transaction rollups to record batches of submitted transactions on the Ethereum main chain, and execute them on a cheap, scalable 
+layer 2 sidechain while leveraging Ethereum to ensure correct results. This process helps to offload most of the computational and storage burden Ethereum currently 
+suffers from, while enabling new classes of powerful layer 2-based DApps. [[1]](https://coinmarketcap.com/alexandria/article/what-is-arbitrum)
+
 🔴 **Optimism**
 
 Optimism is a layer 2 chain, meaning it functions on top of Ethereum mainnet (layer 1). Transactions take place on Optimism, but the data about transactions get posted
 to mainnet where they are validated. It’s like driving in a less crowded side street while benefiting from the security of a highway. Optimism is the second-largest 
-Ethereum layer 2 with a total of $1.61 B locked into its smart contracts, as of this writing, according to [l2beat](https://l2beat.com/scaling/tvl). Optimism uses a technology called rollups, 
+Ethereum layer 2 with a total of $1.61B locked into its smart contracts, as of this writing, according to [l2beat](https://l2beat.com/scaling/tvl). Optimism uses a technology called rollups, 
 specifically Optimistic rollups. They’re called rollups because they roll up (or bundle) the data about hundreds of transactions into a single transaction on Ethereum 
 mainnet (layer 1). And they’re called Optimistic rollups because transactions are assumed to be valid until they are proven false, or in other words, innocent until proven guilty. 
     """
