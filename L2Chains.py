@@ -191,7 +191,7 @@ with subtab_Daily:
                 fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
                 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 		
-	    df = Top_20_Events_Based_on_TXs_Count_Arbitrum
+	        df = Top_20_Events_Based_on_TXs_Count_Arbitrum
 	        fig = px.bar(df, x='Event', y='TX Count', color='Event', title='🔵Arbitrum: Top 20 Events Based TXs Count', log_y=False)
                 fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
                 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
@@ -202,7 +202,7 @@ with subtab_Daily:
                 fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
                 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 		
-	    df = Top_20_Events_Based_on_TXs_Count_Optimism
+	        df = Top_20_Events_Based_on_TXs_Count_Optimism
 	        fig = px.bar(df, x='Event', y='TX Count', color='Event', title='🔴Optimism: Top 20 Events Based TXs Count', log_y=False)
                 fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
                 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
