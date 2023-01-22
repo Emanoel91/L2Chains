@@ -116,6 +116,8 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/06ff575c-8b6b-43ca-b973-21e2dd759071/data/latest')
      elif query1 == 'Classification of Activity of Addresses Optimism':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/bb5316a1-9a0e-42d2-aef9-b9e82b0dc36d/data/latest')
+     elif query1 == 'Status of Total Transactions':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/a2b49ba0-adb2-4834-bd8a-6d8c6fbff7ba/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
@@ -137,6 +139,7 @@ Top_20_Events_Based_on_TXs_Count_Arbitrum = get_data('Top 20 Events Based on TXs
 Top_20_Events_Based_on_TXs_Count_Optimism = get_data('Top 20 Events Based on TXs Count Optimism')
 Classification_of_Activity_of_Addresses_Arbitrum = get_data('Classification of Activity of Addresses Arbitrum')
 Classification_of_Activity_of_Addresses_Optimism = get_data('Classification of Activity of Addresses Optimism')
+Status_of_Total_Transactions = get_data('Status of Total Transactions')
 
 st.subheader('📄 Overview')
 
@@ -202,7 +205,22 @@ df = Classification_of_Activity_of_Addresses_Optimism
 fig = px.scatter(df.sort_values(['Active Day Count', 'Address Count'], ascending=[True, True]), x='Active Day Count', y='Address Count', title='🔴Optimism: Classification of the Number of Days of Activity', log_x=False, log_y=True)
 fig.update_layout(legend_title=None, xaxis_title='Active Day Count', yaxis_title='Address Count')
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
-	
+
+df = Status_of_Total_Transactions
+c1, c2 = st.columns(2)
+            
+with c1:
+    fig = px.bar(df, x='L2 Chain', y='Total TXs Count', color='Status', title='Status of Total Transactions', log_y=False)
+    fig.update_layout(showlegend=True, xaxis_title=None, legend_title='Status', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+df = Top_20_Events_Based_on_TXs_Count_Optimism
+with c2:
+    fig = px.bar(df, x='L2 Chain', y='Total TX Fees', color='Status', title='Status of Total Transaction Fees', log_y=False)
+    fig.update_layout(showlegend=True, xaxis_title=None, legend_title='Status', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
+    st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+
 st.subheader('📊 Analysis')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
