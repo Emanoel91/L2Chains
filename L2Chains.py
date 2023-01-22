@@ -147,7 +147,7 @@ Status_of_Total_Transactions = get_data('Status of Total Transactions')
 Heat_Map_of_Transactions_Optimism = get_data('Heat Map of Transactions Optimism')
 Heat_Map_of_Transactions_Arbitrum = get_data('Heat Map of Transactions Arbitrum')
 
-st.subheader('📄 Overview')
+st.subheader('📄 Comparison of L2 chains')
 
 df = Transaction_Overview
 c1, c2, c3, c4 = st.columns(4)
