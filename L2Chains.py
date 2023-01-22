@@ -210,13 +210,12 @@ df = Status_of_Total_Transactions
 c1, c2 = st.columns(2)
             
 with c1:
-    fig = px.bar(df, x='L2 Chain', y='Total TXs Count', color='Status', title='Status of Total Transactions', log_y=False)
+    fig = px.bar(df, x='L2 Chain', y='Total TXs Count', color='Status', title='Status of Total Transactions', log_y=False, barmode='group')
     fig.update_layout(showlegend=True, xaxis_title=None, legend_title='Status', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 		
-df = Top_20_Events_Based_on_TXs_Count_Optimism
 with c2:
-    fig = px.bar(df, x='L2 Chain', y='Total TX Fees', color='Status', title='Status of Total Transaction Fees', log_y=False)
+    fig = px.bar(df, x='L2 Chain', y='Total TX Fees', color='Status', title='Status of Total Transaction Fees', log_y=False, barmode='group')
     fig.update_layout(showlegend=True, xaxis_title=None, legend_title='Status', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
