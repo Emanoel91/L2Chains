@@ -112,6 +112,10 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/eb082222-8ccf-4e35-ae4d-238f1fa70f2d/data/latest')
      elif query1 == 'Top 20 Events Based on TXs Count Optimism':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/c4cf84bd-d545-4620-ba8d-2949ac7b929b/data/latest')
+     elif query1 == 'Classification of Activity of Addresses Arbitrum':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/06ff575c-8b6b-43ca-b973-21e2dd759071/data/latest')
+     elif query1 == 'Classification of Activity of Addresses Optimism':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/bb5316a1-9a0e-42d2-aef9-b9e82b0dc36d/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
@@ -131,6 +135,8 @@ Arbitrum_TX_Status_Monthly = get_data('Arbitrum TX Status Monthly')
 Optimism_TX_Status_Monthly = get_data('Optimism TX Status Monthly')
 Top_20_Events_Based_on_TXs_Count_Arbitrum = get_data('Top 20 Events Based on TXs Count Arbitrum')
 Top_20_Events_Based_on_TXs_Count_Optimism = get_data('Top 20 Events Based on TXs Count Optimism')
+Classification_of_Activity_of_Addresses_Arbitrum = get_data('Classification of Activity of Addresses Arbitrum')
+Classification_of_Activity_of_Addresses_Optimism = get_data('Classification of Activity of Addresses Optimism')
 
 st.subheader('📄 Overview')
 
@@ -186,6 +192,16 @@ with c2:
     fig = px.bar(df, x='Event', y='TX Count', color='Event', title='🔴Optimism: Top 20 Events Based TXs Count', log_y=False)
     fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+
+df = Classification_of_Activity_of_Addresses_Arbitrum
+fig = px.scatter(df.sort_values(['Active Day Count', 'Address Count'], ascending=[True, True]), x='Active Day Count', y='Address Count', color='', title='🔵Arbitrum: Classification of Activity of Addresses', log_x=False, log_y=True)
+fig.update_layout(legend_title=None, xaxis_title='Active Day Count', yaxis_title='Address Count')
+st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+df = Classification_of_Activity_of_Addresses_Optimism
+fig = px.scatter(df.sort_values(['Active Day Count', 'Address Count'], ascending=[True, True]), x='Active Day Count', y='Address Count', color='', title='🔴Optimism: Classification of Activity of Addresses', log_x=False, log_y=True)
+fig.update_layout(legend_title=None, xaxis_title='Active Day Count', yaxis_title='Address Count')
+st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 	
 st.subheader('📊 Analysis')
 
