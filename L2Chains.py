@@ -108,6 +108,10 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/8007648b-997a-4647-9900-ebb983e78c23/data/latest')
      elif query1 == 'Optimism TX Status Monthly':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/73494d91-353c-4d8a-aa52-d6eb9f112e10/data/latest')
+     elif query1 == 'Top 20 Events Based on TXs Count Arbitrum':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/eb082222-8ccf-4e35-ae4d-238f1fa70f2d/data/latest')
+     elif query1 == 'Top 20 Events Based on TXs Count Optimism':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/c4cf84bd-d545-4620-ba8d-2949ac7b929b/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
@@ -125,6 +129,8 @@ Arbitrum_TX_Status_Weekly = get_data('Arbitrum TX Status Weekly')
 Optimism_TX_Status_Weekly = get_data('Optimism TX Status Weekly')
 Arbitrum_TX_Status_Monthly = get_data('Arbitrum TX Status Monthly')
 Optimism_TX_Status_Monthly = get_data('Optimism TX Status Monthly')
+Top_20_Events_Based_on_TXs_Count_Arbitrum = get_data('Top 20 Events Based on TXs Count Arbitrum')
+Top_20_Events_Based_on_TXs_Count_Optimism = get_data('Top 20 Events Based on TXs Count Optimism')
 
 st.subheader('📄 Overview')
 
@@ -185,11 +191,21 @@ with subtab_Daily:
                 fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
                 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 		
+	    df = Top_20_Events_Based_on_TXs_Count_Arbitrum
+	        fig = px.bar(df, x='Event', y='TX Count', color='Event', title='🔵Arbitrum: Top 20 Events Based TXs Count', log_y=False)
+                fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
+                st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
             df = Optimism_TX_Status
             with c2:
                 fig = px.bar(df, x='Day', y='TX Count', color='STATUS', title='🔴Optimism: Status of Transactions', log_y=False)
                 fig.update_layout(showlegend=True, xaxis_title=None, legend_title='STATUS', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
                 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+		
+	    df = Top_20_Events_Based_on_TXs_Count_Optimism
+	        fig = px.bar(df, x='Event', y='TX Count', color='Event', title='🔴Optimism: Top 20 Events Based TXs Count', log_y=False)
+                fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
+                st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 		
 with subtab_Daily:
 
