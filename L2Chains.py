@@ -118,6 +118,10 @@ def get_data(query1):
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/bb5316a1-9a0e-42d2-aef9-b9e82b0dc36d/data/latest')
      elif query1 == 'Status of Total Transactions':
         return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/a2b49ba0-adb2-4834-bd8a-6d8c6fbff7ba/data/latest')
+     elif query1 == 'Heat Map of Transactions Arbitrum':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/450b8565-460f-4913-a299-4a4b4fd98bee/data/latest')
+     elif query1 == 'Heat Map of Transactions Optimism':
+        return pd.read_json('https://node-api.flipsidecrypto.com/api/v2/queries/ecacbbd4-fd7f-417a-99b4-80fd0a4fef8f/data/latest')
      return None
 
 Daily_Transactions = get_data('Daily Transactions')
@@ -140,6 +144,8 @@ Top_20_Events_Based_on_TXs_Count_Optimism = get_data('Top 20 Events Based on TXs
 Classification_of_Activity_of_Addresses_Arbitrum = get_data('Classification of Activity of Addresses Arbitrum')
 Classification_of_Activity_of_Addresses_Optimism = get_data('Classification of Activity of Addresses Optimism')
 Status_of_Total_Transactions = get_data('Status of Total Transactions')
+Heat_Map_of_Transactions_Optimism = get_data('Heat Map of Transactions Optimism')
+Heat_Map_of_Transactions_Arbitrum = get_data('Heat Map of Transactions Arbitrum')
 
 st.subheader('📄 Overview')
 
@@ -218,6 +224,12 @@ with c2:
     fig = px.bar(df, x='L2 Chain', y='Total TX Fees', color='Status', title='Status of Total Transaction Fees', log_y=False, barmode='group')
     fig.update_layout(showlegend=True, xaxis_title=None, legend_title='Status', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
+
+df = Heat_Map_of_Transactions_Arbitrum
+fig = px.density_heatmap(df, x='Hour', y='Day Name', z='TX Count', histfunc='avg', title='Transactions Count Heat map, Days of Week vs. Hours of Day', nbinsx=24)
+fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title=None, xaxis={'dtick': 1}, yaxis={'dtick': 1}, coloraxis_colorbar=dict(title='Swaps Count'))
+fig.update_yaxes(categoryorder='array', categoryarray=Heat_Map_of_Transactions_Arbitrum)
+st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
 st.subheader('📊 Analysis')
