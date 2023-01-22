@@ -194,12 +194,12 @@ with c2:
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
 df = Classification_of_Activity_of_Addresses_Arbitrum
-fig = px.scatter(df.sort_values(['Active Day Count', 'Address Count'], ascending=[True, True]), x='Active Day Count', y='Address Count', title='🔵Arbitrum: Classification of Activity of Addresses', log_x=False, log_y=True)
+fig = px.scatter(df.sort_values(['Active Day Count', 'Address Count'], ascending=[True, True]), x='Active Day Count', y='Address Count', title='🔵Arbitrum: Classification of the Number of Days of Activity', log_x=False, log_y=True)
 fig.update_layout(legend_title=None, xaxis_title='Active Day Count', yaxis_title='Address Count')
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 df = Classification_of_Activity_of_Addresses_Optimism
-fig = px.scatter(df.sort_values(['Active Day Count', 'Address Count'], ascending=[True, True]), x='Active Day Count', y='Address Count', title='🔴Optimism: Classification of Activity of Addresses', log_x=False, log_y=True)
+fig = px.scatter(df.sort_values(['Active Day Count', 'Address Count'], ascending=[True, True]), x='Active Day Count', y='Address Count', title='🔴Optimism: Classification of the Number of Days of Activity', log_x=False, log_y=True)
 fig.update_layout(legend_title=None, xaxis_title='Active Day Count', yaxis_title='Address Count')
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 	
