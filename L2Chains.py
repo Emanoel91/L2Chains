@@ -344,7 +344,10 @@ with subtab_Daily:
 		
             st.write(
                 """
-            **On December 20, 2022, the number of daily active addresses of the Optimism chain surpassed Arbitrum. On December 21, 2022, the number of active 
+            **Before August 2022, the average number of daily transactions of addresses on the Optimism network was always higher than that of Arbitrum. While after 
+	    this date until the end of October, the average number of transactions per address on the Arbitrum network surpassed Optimism, and finally, from November 
+	    2022 onwards, the average number of transactions per address on the two layer 2 chains has almost equaled. On December 21, 2022, the number of daily active 
+	    addresses of the Optimism chain surpassed Arbitrum. On December 21, 2022, the number of active 
 	    addresses of the Optimism network reached 111,224 addresses, which is a new record among layer 2 chains. The number of new addresses in the Optimism chain 
 	    also grew significantly in late December**
                 """
