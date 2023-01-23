@@ -195,7 +195,10 @@ with c4:
     fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
-
+st.write(
+    """
+**The results show that the top 3 events in both chains are 'Transfer', 'Approval' and 'Swap' respectively.**
+    """
 
 df = Top_20_Events_Based_on_TXs_Count_Arbitrum
 c1, c2 = st.columns(2)
