@@ -231,6 +231,13 @@ fig = px.scatter(df.sort_values(['Active Day Count', 'Address Count'], ascending
 fig.update_layout(legend_title=None, xaxis_title='Active Day Count', yaxis_title='Address Count')
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+st.write(
+    """
+**Optimism chain transaction success rate is 94.5%. Meanwhile, this rate for the Arbitrum chain is about 97%. On the other hand, the number of failed transactions of 
+Arbitrum is less than Optimism, while the total number of transactions of Arbitrum is more than Optimism.**
+    """
+)
+
 df = Status_of_Total_Transactions
 c1, c2 = st.columns(2)
             
