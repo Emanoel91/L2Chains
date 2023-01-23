@@ -366,7 +366,12 @@ with subtab_Daily:
              st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 	
 with subtab_Daily:
-	
+            st.write(
+                """
+            **The charts below show that almost most of the time, the value of daily transactions of Arbitrum chain was more than Optimism. On the other hand, in a 
+	    large number of days, the value of Arbitrum network transactions has increased dramatically.**
+                """
+            )		
              df = Daily_Transactions_Value	
              fig = px.line(df, x='Day', y='Total TX Value', color='L2 Chain', title='Total Transactions Value', log_y=False)
              fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
@@ -497,6 +502,14 @@ with subtab_Monthly:
              st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
                    
 #-----------------------------------------------------------------------------------------------------------
+st.subheader('📊 Conclusion')
+            st.write(
+                """
+            **In this dashboard, the transaction status of two of the most important layer 2 chains, Arbitrum and Optimism, were compared. In many indicators, Arbitrum
+	    has a better situation than Optimism, while we see a significant growth in the Optimism transactions from September 2022 onwards, which indicates the 
+	    desire of the Optimism chain to take the first place among the layer 2 chains and pass Arbitrum.**
+                """
+            )	
 c1, c2, c3 = st.columns(3)
 with c1:
     st.info('**Analyst: [Emanoel](https://twitter.com/Astiran91)**', icon="📌")
