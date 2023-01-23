@@ -343,13 +343,13 @@ with subtab_Daily:
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 		
             		
-	  st.write(
-              """
-          **On December 20, 2022, the number of daily active addresses of the Optimism chain surpassed Arbitrum. On December 21, 2022, the number of active 
-	  addresses of the Optimism network reached 111,224 addresses, which is a new record among layer 2 chains. The number of new addresses in the Optimism chain 
-	  also grew significantly in late December.**
-              """
-          )
+	      st.write(
+                  """
+              **On December 20, 2022, the number of daily active addresses of the Optimism chain surpassed Arbitrum. On December 21, 2022, the number of active 
+	      addresses of the Optimism network reached 111,224 addresses, which is a new record among layer 2 chains. The number of new addresses in the Optimism chain 
+	      also grew significantly in late December.**
+                  """
+              )
 
             fig = px.line(df, x='Day', y='Average TX per Address', color='L2 Chain', title='Average Transaction Count per Address', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
