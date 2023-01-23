@@ -503,13 +503,13 @@ with subtab_Monthly:
                    
 #-----------------------------------------------------------------------------------------------------------
 st.subheader('📊 Conclusion')
-            st.write(
-                """
-            **In this dashboard, the transaction status of two of the most important layer 2 chains, Arbitrum and Optimism, were compared. In many indicators, Arbitrum
-	    has a better situation than Optimism, while we see a significant growth in the Optimism transactions from September 2022 onwards, which indicates the 
-	    desire of the Optimism chain to take the first place among the layer 2 chains and pass Arbitrum.**
-                """
-            )	
+st.write(
+   """
+**In this dashboard, the transaction status of two of the most important layer 2 chains, Arbitrum and Optimism, were compared. In many indicators, Arbitrum
+has a better situation than Optimism, while we see a significant growth in the Optimism transactions from September 2022 onwards, which indicates the 
+desire of the Optimism chain to take the first place among the layer 2 chains and pass Arbitrum.**
+   """
+)	
 c1, c2, c3 = st.columns(3)
 with c1:
     st.info('**Analyst: [Emanoel](https://twitter.com/Astiran91)**', icon="📌")
