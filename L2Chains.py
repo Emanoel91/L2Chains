@@ -234,7 +234,8 @@ st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 st.write(
     """
 **Optimism chain transaction success rate is 94.5%. Meanwhile, this rate for the Arbitrum chain is about 97%. On the other hand, the number of failed transactions of 
-Arbitrum is less than Optimism, while the total number of transactions of Arbitrum is more than Optimism.**
+Arbitrum is less than Optimism, while the total number of transactions of Arbitrum is more than Optimism. The amount of fees paid for failed transactions in the 
+Optimism chain is about 2 times that of Arbitrum (Optimism: 762 ETH & Arbitrum: 379 ETH)**
     """
 )
 
