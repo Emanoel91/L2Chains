@@ -253,7 +253,7 @@ with c2:
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 df = Heat_Map_of_Transactions_Arbitrum
-fig = px.density_heatmap(df, x='Hour', y='Day Name', z='TX Count', histfunc='avg', title='🔵Arbitrum: Transactions Count Heat map, Days of Week vs. Hours of Day', nbinsx=24)
+fig = px.density_heatmap(df, x='Hour', y='Day Name', z='TX Count', histfunc='', title='🔵Arbitrum: Transactions Count Heat map, Days of Week vs. Hours of Day', nbinsx=24)
 fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title=None, xaxis={'dtick': 1}, yaxis={'dtick': 1}, coloraxis_colorbar=dict(title='TXs Count'))
 fig.update_yaxes(categoryorder='array', categoryarray=Heat_Map_of_Transactions_Arbitrum)
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
