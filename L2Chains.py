@@ -292,7 +292,9 @@ subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Month
 with subtab_Daily:
             st.write(
                 """
-             **The results show that the top 3 events in both chains are 'Transfer', 'Approval' and 'Swap' respectively.**
+             **Ethereum layer-2 on-chain activity has been increasing to the extent that the leading two networks now process more transaction volume than mainnet 
+	       Ethereum. Layer-2 networks Arbitrum and Optimism have seen an increase in transactions over the past three months. Comparatively, aside from a few 
+	       spikes, transactions on the Ethereum network have declined by around 33% since late October, according to Etherscan.**
                 """
             )
             df = Daily_Transactions
