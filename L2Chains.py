@@ -286,13 +286,13 @@ fig.update_yaxes(categoryorder='array', categoryarray=Heat_Map_of_Transactions_O
 st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
 
-st.subheader('📊 Analysis')
+st.subheader('📊 Charts Analysis in Different Time Frames')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
 with subtab_Daily:
 
             df = Daily_Transactions
-            fig = px.bar(df, x='Day', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
+            fig = px.line(df, x='Day', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
