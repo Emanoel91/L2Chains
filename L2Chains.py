@@ -148,7 +148,14 @@ Heat_Map_of_Transactions_Optimism = get_data('Heat Map of Transactions Optimism'
 Heat_Map_of_Transactions_Arbitrum = get_data('Heat Map of Transactions Arbitrum')
 
 st.subheader('📄 Comparison of L2 chains')
-
+st.write(
+    """
+**Although the number of transactions and TPS of Arbitrum chain is more than the number of transactions and TPS of Optimism, but because the average transaction fee 
+of Arbitrum is lower than Optimism, so the total fees collected in Optimism are more than Arbitrum. On the other hand, although the number of unique addresses of 
+Arbitrum is more than that of Optimism, the average number of recorded transactions per address is the same in the two chains. The results show that the average 
+transaction value of Arbitrum is higher than Optimism.**
+    """
+)
 df = Transaction_Overview
 c1, c2, c3, c4 = st.columns(4)
 
@@ -188,14 +195,7 @@ with c4:
     fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
-st.write(
-    """
-**Although the number of transactions and TPS of Arbitrum chain is more than the number of transactions and TPS of Optimism, but because the average transaction fee 
-of Arbitrum is lower than Optimism, so the total fees collected in Optimism are more than Arbitrum. On the other hand, although the number of unique addresses of 
-Arbitrum is more than that of Optimism, the average number of recorded transactions per address is the same in the two chains. The results show that the average 
-transaction value of Arbitrum is higher than Optimism.**
-    """
-)
+
 
 df = Top_20_Events_Based_on_TXs_Count_Arbitrum
 c1, c2 = st.columns(2)
