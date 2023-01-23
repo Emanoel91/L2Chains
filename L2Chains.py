@@ -199,7 +199,7 @@ st.write(
     """
 **The results show that the top 3 events in both chains are 'Transfer', 'Approval' and 'Swap' respectively.**
     """
-
+)
 df = Top_20_Events_Based_on_TXs_Count_Arbitrum
 c1, c2 = st.columns(2)
             
