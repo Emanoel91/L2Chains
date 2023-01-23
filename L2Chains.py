@@ -290,7 +290,11 @@ st.subheader('📊 Charts Analysis in Different Time Frames')
 
 subtab_Daily, subtab_Weekly, subtab_Monthly = st.tabs(['Daily', 'Weekly', 'Monthly'])
 with subtab_Daily:
-
+            st.write(
+                """
+             **The results show that the top 3 events in both chains are 'Transfer', 'Approval' and 'Swap' respectively.**
+                """
+            )
             df = Daily_Transactions
             fig = px.line(df, x='Day', y='TX Count', color='L2 Chain', title='Total Number of Transactions', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
