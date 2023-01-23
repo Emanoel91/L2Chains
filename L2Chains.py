@@ -294,7 +294,9 @@ with subtab_Daily:
                 """
              **Ethereum layer-2 on-chain activity has been increasing to the extent that the leading two networks now process more transaction volume than mainnet 
 	       Ethereum. Layer-2 networks Arbitrum and Optimism have seen an increase in transactions over the past three months. Comparatively, aside from a few 
-	       spikes, transactions on the Ethereum network have declined by around 33% since late October, according to Etherscan.**
+	       spikes, transactions on the Ethereum network have declined by around 33% since late October, according to Etherscan. Ethereum processed 
+	       over 1.06 million transactions on Jan. 10, whereas Arbitrum and Optimism combined processed over 1,139,136 transactions. Additionally, Optimism has 
+	       now surpassed Arbitrum in terms of daily transactions following a steady uptrend in activity since September.**
                 """
             )
             df = Daily_Transactions
