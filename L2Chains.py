@@ -325,13 +325,30 @@ with subtab_Daily:
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 		
+	    
+            st.write(
+                """
+            **From September 2022 onwards, there will be an upward trend in the fees collected by the Optimism chain. The reason for this upward trend is the increase 
+	    in the number of Optimism chain transactions from September onwards. On the other hand, since August 31, 2022, the average transaction fees of Optimism 
+	    network have always been higher than Arbitrum.**
+                """
+            )	
+		
             fig = px.bar(df, x='Day', y='Total TX Fee', color='L2 Chain', title='Total Transaction Fees', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
             st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
             fig = px.line(df, x='Day', y='Average TX Fee', color='L2 Chain', title='Average Transaction Fees', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
-            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)			
+            st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
+		
+	    st.write(
+                """
+            **On December 20, 2022, the number of daily active addresses of the Optimism chain surpassed Arbitrum. On December 21, 2022, the number of active 
+	    addresses of the Optimism network reached 111,224 addresses, which is a new record among layer 2 chains. The number of new addresses in the Optimism chain 
+	    also grew significantly in late December.**
+                """
+            )
 
             fig = px.line(df, x='Day', y='Average TX per Address', color='L2 Chain', title='Average Transaction Count per Address', log_y=False)
             fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
