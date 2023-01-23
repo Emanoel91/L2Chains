@@ -505,7 +505,7 @@ with subtab_Monthly:
              st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
                    
 #-----------------------------------------------------------------------------------------------------------
-st.subheader('📊 Conclusion')
+st.subheader('🔍 Conclusion')
 st.write(
    """
 **In this dashboard, the transaction status of two of the most important layer 2 chains, Arbitrum and Optimism, were compared. In many indicators, Arbitrum
