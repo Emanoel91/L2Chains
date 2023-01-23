@@ -252,6 +252,15 @@ with c2:
     fig.update_layout(showlegend=True, xaxis_title=None, legend_title='Status', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)
 
+st.write(
+    """
+**The number of transactions at the end of the night and the beginning of the morning in both chains is less than at other times. The highest number of transactions 
+and transaction fees were recorded on the Arbitrum network at 13:00 on Wednesdays. Meanwhile, the highest number of Optimism network transactions are recorded at 8 am 
+on Wednesdays. Optimism transaction fees are higher on Tuesdays at 19:00, 13:00, 16:00 on Wednesdays and 15:00 on Thursdays than at other times. The fees collected at 
+the end of the week in both chains are lower than at other times.**
+    """
+)
+
 df = Heat_Map_of_Transactions_Arbitrum
 fig = px.density_heatmap(df, x='Hour', y='Day Name', z='TX Count', histfunc='avg', title='🔵Arbitrum: Transactions Count Heat map, Days of Week vs. Hours of Day', nbinsx=24)
 fig.update_layout(legend_title=None, xaxis_title=None, yaxis_title=None, xaxis={'dtick': 1}, yaxis={'dtick': 1}, coloraxis_colorbar=dict(title='TXs Count'))
