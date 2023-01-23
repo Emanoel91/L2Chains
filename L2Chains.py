@@ -214,6 +214,13 @@ with c2:
     fig.update_layout(showlegend=False, xaxis_title=None, legend_title='', yaxis_title='TXs Count', xaxis={'categoryorder':'total ascending'})
     st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)	
 
+st.write(
+    """
+**Most addresses of both chains have only been active for one day (Arbitrum: 912k vs. Optimism: 722k). 43 addresses on the Arbitrum chain have been active for the 
+most days (these addresses have been active for more than 281 days). Likewise, there are two addresses on the Optimism chain that have been active for 438 days.**
+    """
+)
+
 df = Classification_of_Activity_of_Addresses_Arbitrum
 fig = px.scatter(df.sort_values(['Active Day Count', 'Address Count'], ascending=[True, True]), x='Active Day Count', y='Address Count', title='🔵Arbitrum: Classification of the Number of Days of Activity', log_x=False, log_y=True)
 fig.update_layout(legend_title=None, xaxis_title='Active Day Count', yaxis_title='Address Count')
