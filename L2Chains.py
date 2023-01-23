@@ -344,9 +344,9 @@ with subtab_Daily:
 		
             st.write(
                 """
-            **From September 2022 onwards, there will be an upward trend in the fees collected by the Optimism chain. The reason for this upward trend is the increase 
-	    in the number of Optimism chain transactions from September onwards. On the other hand, since August 31, 2022, the average transaction fees of Optimism 
-	    network have always been higher than Arbitrum.**
+            **On December 20, 2022, the number of daily active addresses of the Optimism chain surpassed Arbitrum. On December 21, 2022, the number of active 
+	    addresses of the Optimism network reached 111,224 addresses, which is a new record among layer 2 chains. The number of new addresses in the Optimism chain 
+	    also grew significantly in late December**
                 """
             )
 		
