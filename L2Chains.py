@@ -503,7 +503,40 @@ with subtab_Monthly:
              fig = px.line(df, x='Month', y='Average TX Value', color='L2 Chain', title='Average Transactions Value', log_y=False)
              fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
              st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
-                   
+#-----------------------------------------------------------------------------------------------------------
+st.subheader('🔗 Refrence')
+c1, c2 = st.columns(2)
+with c1:
+    st.write(
+       """
+     - [Heatmap of transactions: Arbitrum](https://app.flipsidecrypto.com/velocity/queries/450b8565-460f-4913-a299-4a4b4fd98bee)
+     - [Heatmap of transactions: Optimism](https://app.flipsidecrypto.com/velocity/queries/ecacbbd4-fd7f-417a-99b4-80fd0a4fef8f)  
+     - [Status of total transactions](https://app.flipsidecrypto.com/velocity/queries/a2b49ba0-adb2-4834-bd8a-6d8c6fbff7ba)
+     - [Top 20 Events Based on TXs Count Optimism](https://app.flipsidecrypto.com/velocity/queries/c4cf84bd-d545-4620-ba8d-2949ac7b929b)
+     - [Optimism TX Status Monthly](https://app.flipsidecrypto.com/velocity/queries/73494d91-353c-4d8a-aa52-d6eb9f112e10)  
+     - [Arbitrum TX Status Monthly](https://app.flipsidecrypto.com/velocity/queries/8007648b-997a-4647-9900-ebb983e78c23) 
+     - [Optimism TX Status Weekly](https://app.flipsidecrypto.com/velocity/queries/ef59f00d-7aff-42ea-9c8c-f7da9bf07f31)
+     - [Arbitrum TX Status Weekly](https://app.flipsidecrypto.com/velocity/queries/a7c937c0-1a3f-4d47-8e9f-daece6bcab95)  
+     - [Optimism TX Status](https://app.flipsidecrypto.com/velocity/queries/880cf7d7-70ab-4cff-b926-3b6df8a28c59)    
+     - [Total Number of Contracts](https://app.flipsidecrypto.com/velocity/queries/9b3e15e8-3f8e-4a03-b2b4-b4e84ddb8b60)      
+       """
+      )
+with c2:
+    st.write(
+       """
+     - [Arbitrum TX Status](https://app.flipsidecrypto.com/velocity/queries/cfc29701-c6f0-4a71-b102-7f119313dda9)
+     - [Transaction Overview](https://app.flipsidecrypto.com/velocity/queries/335e43c1-ebc8-4117-80be-b97f3d0945a7)
+     - [New Addresses Monthly](https://app.flipsidecrypto.com/velocity/queries/37b83485-1817-4ca3-bf57-8157ff28addc) 
+     - [New Addresses Weekly](https://app.flipsidecrypto.com/velocity/queries/ca20a9b0-a0c5-49c9-b3d3-5a16a11e6b45)
+     - [Monthly Transactions](https://app.flipsidecrypto.com/velocity/queries/8fd56cb3-9123-407b-9c95-0f215202a1a2)
+     - [Weekly Transactions](https://app.flipsidecrypto.com/velocity/queries/29ad802c-4267-4cc7-8458-b48f17d6898b)
+     - [Daily Transactions Value](https://app.flipsidecrypto.com/velocity/queries/ea6888d0-422a-4bce-bb77-da7ec1410cbc)
+     - [New Addresses](https://app.flipsidecrypto.com/velocity/queries/90828ee6-8f67-47de-8812-29d302b22d4c)
+     - [Daily Transactions](https://app.flipsidecrypto.com/velocity/queries/8481f651-ec83-44a4-8aa5-d79ef14de8d9)     
+       """
+      )
+
+          
 #-----------------------------------------------------------------------------------------------------------
 st.subheader('🔍 Conclusion')
 st.write(
