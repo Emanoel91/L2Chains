@@ -504,6 +504,17 @@ with subtab_Monthly:
              fig.update_layout(showlegend=True, xaxis_title=None, legend_title='L2 Chain', yaxis_title='$ETH', xaxis={'categoryorder':'total ascending'})
              st.plotly_chart(fig, use_container_width=True, theme=theme_plotly)		
 #-----------------------------------------------------------------------------------------------------------
+          
+#-----------------------------------------------------------------------------------------------------------
+st.subheader('🔍 Conclusion')
+st.write(
+   """
+**In this dashboard, the transaction status of two of the most important layer 2 chains, Arbitrum and Optimism, were compared. In many indicators, Arbitrum
+has a better situation than Optimism, while we see a significant growth in the Optimism transactions from September 2022 onwards, which indicates the 
+desire of the Optimism chain to take the first place among the layer 2 chains and pass Arbitrum.**
+   """
+)
+#-------------------------------------------------------------------------------------------------------------------------------------
 st.subheader('🔗 Refrence')
 c1, c2 = st.columns(2)
 with c1:
@@ -535,17 +546,7 @@ with c2:
      - [Daily Transactions](https://app.flipsidecrypto.com/velocity/queries/8481f651-ec83-44a4-8aa5-d79ef14de8d9)     
        """
       )
-
-          
-#-----------------------------------------------------------------------------------------------------------
-st.subheader('🔍 Conclusion')
-st.write(
-   """
-**In this dashboard, the transaction status of two of the most important layer 2 chains, Arbitrum and Optimism, were compared. In many indicators, Arbitrum
-has a better situation than Optimism, while we see a significant growth in the Optimism transactions from September 2022 onwards, which indicates the 
-desire of the Optimism chain to take the first place among the layer 2 chains and pass Arbitrum.**
-   """
-)	
+#-------------------------------------------------------------------------------------------------------------------------------------
 c1, c2, c3 = st.columns(3)
 with c1:
     st.info('**Analyst: [Emanoel](https://twitter.com/Astiran91)**', icon="📌")
