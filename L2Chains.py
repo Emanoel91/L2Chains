@@ -515,8 +515,22 @@ desire of the Optimism chain to take the first place among the layer 2 chains an
    """
 )
 #-------------------------------------------------------------------------------------------------------------------------------------
+
+#-------------------------------------------------------------------------------------------------------------------------------------
+c1, c2, c3 = st.columns(3)
+with c1:
+    st.info('**Analyst: [Emanoel](https://twitter.com/Astiran91)**', icon="📌")
+    #c1.image(Image.open('Images/analyst2.JPG'))
+with c2:
+    st.info('**Database: [Flipside Crypto](https://flipsidecrypto.xyz/)**', icon="📚")
+    #c2.image(Image.open('Images/flipside.JPG'))
+with c3:
+    st.info('**Provided for: [MetricsDao](https://metricsdao.xyz/)**', icon="💡")
+    #c3.image(Image.open('Images/metricsdao.JPG'))
+
+	
 st.subheader('🔗 Refrence')
-c1, c2 = st.columns(2)
+c1, c2, c3, c4 = st.columns(4)
 with c1:
     st.write(
        """
@@ -534,30 +548,33 @@ with c1:
       )
 with c2:
     st.write(
+       """ 
+     - [Arbitrum TX Status Monthly](https://app.flipsidecrypto.com/velocity/queries/8007648b-997a-4647-9900-ebb983e78c23) 
+     - [Optimism TX Status Weekly](https://app.flipsidecrypto.com/velocity/queries/ef59f00d-7aff-42ea-9c8c-f7da9bf07f31)
+     - [Arbitrum TX Status Weekly](https://app.flipsidecrypto.com/velocity/queries/a7c937c0-1a3f-4d47-8e9f-daece6bcab95)  
+     - [Optimism TX Status](https://app.flipsidecrypto.com/velocity/queries/880cf7d7-70ab-4cff-b926-3b6df8a28c59)    
+     - [Total Number of Contracts](https://app.flipsidecrypto.com/velocity/queries/9b3e15e8-3f8e-4a03-b2b4-b4e84ddb8b60)      
+       """
+      )
+
+with c3:
+    st.write(
        """
      - [Arbitrum TX Status](https://app.flipsidecrypto.com/velocity/queries/cfc29701-c6f0-4a71-b102-7f119313dda9)
      - [Transaction Overview](https://app.flipsidecrypto.com/velocity/queries/335e43c1-ebc8-4117-80be-b97f3d0945a7)
      - [New Addresses Monthly](https://app.flipsidecrypto.com/velocity/queries/37b83485-1817-4ca3-bf57-8157ff28addc) 
      - [New Addresses Weekly](https://app.flipsidecrypto.com/velocity/queries/ca20a9b0-a0c5-49c9-b3d3-5a16a11e6b45)
-     - [Monthly Transactions](https://app.flipsidecrypto.com/velocity/queries/8fd56cb3-9123-407b-9c95-0f215202a1a2)
+     - [Monthly Transactions](https://app.flipsidecrypto.com/velocity/queries/8fd56cb3-9123-407b-9c95-0f215202a1a2)    
+       """
+      )	
+with c4:
+    st.write(
+       """
      - [Weekly Transactions](https://app.flipsidecrypto.com/velocity/queries/29ad802c-4267-4cc7-8458-b48f17d6898b)
      - [Daily Transactions Value](https://app.flipsidecrypto.com/velocity/queries/ea6888d0-422a-4bce-bb77-da7ec1410cbc)
      - [New Addresses](https://app.flipsidecrypto.com/velocity/queries/90828ee6-8f67-47de-8812-29d302b22d4c)
      - [Daily Transactions](https://app.flipsidecrypto.com/velocity/queries/8481f651-ec83-44a4-8aa5-d79ef14de8d9)     
        """
-      )
-#-------------------------------------------------------------------------------------------------------------------------------------
-c1, c2, c3 = st.columns(3)
-with c1:
-    st.info('**Analyst: [Emanoel](https://twitter.com/Astiran91)**', icon="📌")
-    #c1.image(Image.open('Images/analyst2.JPG'))
-with c2:
-    st.info('**Database: [Flipside Crypto](https://flipsidecrypto.xyz/)**', icon="📚")
-    #c2.image(Image.open('Images/flipside.JPG'))
-with c3:
-    st.info('**Provided for: [MetricsDao](https://metricsdao.xyz/)**', icon="💡")
-    #c3.image(Image.open('Images/metricsdao.JPG'))
-
-
+      )	
 
 
