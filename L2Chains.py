@@ -517,7 +517,7 @@ desire of the Optimism chain to take the first place among the layer 2 chains an
 #-------------------------------------------------------------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------------------------------------------------------------
-c1, c2, c3 = st.columns(3)
+c1, c2, c3, c4 = st.columns(4)
 with c1:
     st.info('**Analyst: [Emanoel](https://twitter.com/Astiran91)**', icon="📌")
     #c1.image(Image.open('Images/analyst2.JPG'))
@@ -527,6 +527,9 @@ with c2:
 with c3:
     st.info('**Provided for: [MetricsDao](https://metricsdao.xyz/)**', icon="💡")
     #c3.image(Image.open('Images/metricsdao.JPG'))
+with c4:
+    st.info('**[My github](https://github.com/Emanoel91)**', icon="💡")
+    #c3.image(Image.open('Images/metricsdao.JPG'))	
 
 	
 st.subheader('🔗 Queries')
