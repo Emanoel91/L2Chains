@@ -538,12 +538,7 @@ with c1:
      - [Heatmap of transactions: Optimism](https://app.flipsidecrypto.com/velocity/queries/ecacbbd4-fd7f-417a-99b4-80fd0a4fef8f)  
      - [Status of total transactions](https://app.flipsidecrypto.com/velocity/queries/a2b49ba0-adb2-4834-bd8a-6d8c6fbff7ba)
      - [Top 20 Events Based on TXs Count Optimism](https://app.flipsidecrypto.com/velocity/queries/c4cf84bd-d545-4620-ba8d-2949ac7b929b)
-     - [Optimism TX Status Monthly](https://app.flipsidecrypto.com/velocity/queries/73494d91-353c-4d8a-aa52-d6eb9f112e10)  
-     - [Arbitrum TX Status Monthly](https://app.flipsidecrypto.com/velocity/queries/8007648b-997a-4647-9900-ebb983e78c23) 
-     - [Optimism TX Status Weekly](https://app.flipsidecrypto.com/velocity/queries/ef59f00d-7aff-42ea-9c8c-f7da9bf07f31)
-     - [Arbitrum TX Status Weekly](https://app.flipsidecrypto.com/velocity/queries/a7c937c0-1a3f-4d47-8e9f-daece6bcab95)  
-     - [Optimism TX Status](https://app.flipsidecrypto.com/velocity/queries/880cf7d7-70ab-4cff-b926-3b6df8a28c59)    
-     - [Total Number of Contracts](https://app.flipsidecrypto.com/velocity/queries/9b3e15e8-3f8e-4a03-b2b4-b4e84ddb8b60)      
+     - [Optimism TX Status Monthly](https://app.flipsidecrypto.com/velocity/queries/73494d91-353c-4d8a-aa52-d6eb9f112e10)       
        """
       )
 with c2:
