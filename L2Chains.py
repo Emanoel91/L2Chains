@@ -529,7 +529,7 @@ with c3:
     #c3.image(Image.open('Images/metricsdao.JPG'))
 
 	
-st.subheader('🔗 Refrence')
+st.subheader('🔗 Queries')
 c1, c2, c3, c4 = st.columns(4)
 with c1:
     st.write(
