@@ -533,11 +533,11 @@ with c4:
 
 	
 st.subheader('🔗 Queries')
-    st.write(
-       """
-     Project link on GitHub: [Click here](https://github.com/Emanoel91/L2Chains)      
-       """
-      )
+st.write(
+   """
+ Project link on GitHub: [Click here](https://github.com/Emanoel91/L2Chains)      
+   """
+  )
 c1, c2, c3, c4 = st.columns(4)
 with c1:
     st.write(
